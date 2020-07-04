@@ -1,16 +1,24 @@
 let currentNumber = 1;
+let output = "";
 
 while(currentNumber < 101){
-    if((currentNumber % 3) === 0){
-        console.log("Fizz")
-        currentNumber++;
-        continue
+
+    let divisibleByThree = currentNumber % 3 === 0;
+    let divisibleByFive = currentNumber % 5 === 0;
+
+    if(divisibleByThree){
+        output = "Fizz";
     }
-    if((currentNumber % 5) === 0){
-        console.log("Buzz");
-        currentNumber++;
-        continue
+
+    if(divisibleByFive){
+        output += "Buzz";
     }
-    console.log(currentNumber)
+
+    if(!divisibleByThree && !divisibleByFive){
+       output = currentNumber;
+    }
+
+    console.log(output);
+    output = "";
     currentNumber++;
 }
